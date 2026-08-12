@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AccessForm</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">♿</span>
+            <strong>AccessForm</strong>
+            <span class="version">v2.4.1</span>
+        </div>
+
+        <div class="header-right">
+            <span>Extensão de Acessibilidade para Formulários</span>
+
+            <button id="openPanel" class="panel-button">
+                ⚙ Painel
+                <kbd>Alt+A</kbd>
+            </button>
+        </div>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+            <h1>
+                Wireframe Interativo —
+                <span>Extensão de Acessibilidade</span>
+            </h1>
+
+            <p>
+                Esta página simula um site com formulários inacessíveis.
+                O painel lateral (Drawer) da extensão é ativado ao detectar
+                campos sem rótulos adequados.
+                Use <kbd>Alt+A</kbd> para abrir o painel.
+            </p>
+        </section>
+
+
+        <section>
+            <h2>Recursos do Painel</h2>
+
+            <div class="cards">
+
+                <article class="card">
+                    <div class="card-icon">🔎</div>
+                    <h3>Detecção por IA</h3>
+                    <p>
+                        Identifica campos sem rótulos semânticos em tempo real.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🔊</div>
+                    <h3>Leitura em Voz Alta</h3>
+                    <p>
+                        Lê todos os campos identificados usando síntese de voz nativa.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">⌨️</div>
+                    <h3>Atalhos de Teclado</h3>
+                    <p>
+                        Operação 100% por teclado, sem necessidade de mouse.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">🎨</div>
+                    <h3>Controle de Contraste</h3>
+                    <p>
+                        Três modos: Normal, Alto Contraste e Invertido.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">✅</div>
+                    <h3>Confirmação Seletiva</h3>
+                    <p>
+                        Confirme campos individualmente ou todos de uma vez.
+                    </p>
+                </article>
+
+                <article class="card">
+                    <div class="card-icon">♿</div>
+                    <h3>WCAG AAA</h3>
+                    <p>
+                        Taxa de contraste 21:1 — máxima acessibilidade garantida.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+
+        <section class="form-section">
+
+            <h2>Formulário de Demonstração</h2>
+
+            <p class="description">
+                Este formulário contém campos sem rótulos acessíveis —
+                exatamente o que a extensão detecta e corrige.
+            </p>
+
+            <form id="demoForm">
+
+                <div class="form-grid">
+
+                    <!-- Campo propositalmente sem label -->
+                    <input
+                        type="text"
+                        placeholder="Edit"
+                        class="inaccessible-field"
+                    >
+
+                    <!-- Campo propositalmente sem label -->
+                    <input
+                        type="text"
+                        placeholder="Edit"
+                        class="inaccessible-field"
+                    >
+
+                    <!-- Campo propositalmente sem label -->
+                    <input
+                        type="text"
+                        placeholder="Edit"
+                        class="inaccessible-field"
+                    >
+
+                    <!-- Outro campo -->
+                    <input
+                        type="text"
+                        placeholder="combo89"
+                        class="inaccessible-field"
+                    >
+
+                </div>
+
+                <div class="form-actions">
+
+                    <button type="submit" class="submit-button">
+                        Enviar
+                    </button>
+
+                    <button type="button" id="correctWithAI" class="ai-button">
+                        ♿ Corrigir com IA
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+
+    <!-- OVERLAY -->
+    <div id="overlay" class="overlay"></div>
+
+
+    <!-- PAINEL LATERAL -->
+    <aside id="sidePanel" class="side-panel">
+
+        <div class="panel-header">
+
+            <div>
+                <span class="panel-title">AccessForm</span>
+                <p>Acessibilidade</p>
+            </div>
+
+            <button id="closePanel" class="close-button">
+                ✕
+            </button>
+
+        </div>
+
+
+        <div class="panel-content">
+
+            <div class="status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>Problemas encontrados</strong>
+                    <span id="problemCount">4 campos</span>
+                </div>
+            </div>
+
+
+            <h3>Campos detectados</h3>
+
+            <div id="fieldList" class="field-list">
+                <!-- JavaScript preencherá aqui -->
+            </div>
+
+
+            <div class="panel-actions">
+
+                <button id="readFields">
+                    🔊 Ler campos
+                </button>
+
+                <button id="correctAll">
+                    ✨ Corrigir todos
+                </button>
+
+            </div>
+
+
+            <h3>Contraste</h3>
+
+            <div class="contrast-buttons">
+
+                <button data-mode="normal">
+                    Normal
+                </button>
+
+                <button data-mode="high">
+                    Alto contraste
+                </button>
+
+                <button data-mode="invert">
+                    Invertido
+                </button>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <button class="help-button">
+        ?
+    </button>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
